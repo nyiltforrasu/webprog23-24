@@ -1,4 +1,4 @@
-# webprogAcsapat
+# webprog
 Ez a repozitori a GIT használatát és elsajátítását segíti elő
 
 1. A csoportod mappájához add hozzá a korábbi órán magadról készített weboldalat
