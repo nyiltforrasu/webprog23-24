@@ -3,14 +3,24 @@ body {
     font-family: Broadway;
     color: brown;
 }
+a:link{
+    color:green; background: aliceblue;display: block;
+    padding: inherit;border: aqua;text-decoration: red;text-align: center;
+
+}
+
 
 img {
-    width: 100%;
+    width: 20%;
     height: auto;
 
 }
 
 .hianyzo {
     font-style: italic;
+}
+
+li{
+    /*font-size: calc("1em+2vw");*/
 
 }
