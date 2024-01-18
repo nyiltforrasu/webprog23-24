@@ -91,8 +91,43 @@
 
 
 
+    <label for="elso">1st Number</label>
+    <input type="number" id="elso">
+    <br>
+    <label for="masodik">2st Number</label>
+    <input type="number" id="masodik">
+    <br>
+    <button onclick="szoroz()">multiply </button>
+    <button onclick="osztas()">divine</button>
+    <label id="result"></label>
+    <br>
+    <label id="ido"></label>
+    <script>
+        function szoroz(){
+            //parseint("154")
+            let a = parseInt(document.getElementById("elso").value);
+            let b = parseInt(document.getElementById("masodik").value);
+            console.log(typeof a);
+            const res = a*b;
+            document.getElementById("result").innerHTML=res;
+        }
+        function osztas(){
+            //parseint("154")
+            let a = parseInt(document.getElementById("elso").value);
+            let b = parseInt(document.getElementById("masodik").value);
+            console.log(typeof a);
+            const res = a/b;
+            document.getElementById("result").innerHTML=res;
+        }
+        function update(){
+            const a= new Date();
+
+            document.getElementById("ido").innerHTML=a.getHours().toString()+":"+a.getMinutes().toString()+":"+a.getSeconds().toString();
 
 
+        }
+        setInterval("update()",1000);
 
+    </script>
     </body>
 </html>
