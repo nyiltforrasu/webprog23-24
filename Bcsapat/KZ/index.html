@@ -6,7 +6,7 @@
 
         <link rel="stylesheet" href="common.css">
     </head>
-    <body style="background-color: gold" >
+    <body style="background-color: gold" onload="szovegmodosit('az oldal betoltott')" >
     <img src="resources/img.jpg" height="300" width="490" alt="diszno">
     <link rel="icon" href="resources/img.jpg">
     <title>Magamrol</title>
@@ -88,6 +88,7 @@
 
         <cite>M&M's</cite>
     </blockquote>
+    
 
 
 
@@ -102,7 +103,16 @@
     <label id="result"></label>
     <br>
     <label id="ido"></label>
+
+    <div id="kocka" oncontextmenu="szovegmodosit('kocka opciok');szovegszin()"  onmouseenter="szovegmodosit('eger belul')" onmouseleave="szovegmodosit('eger kivul')"  onclick="szovegmodosit('kockaklik')" style="width: 200px; height: 100px; ;background: darkblue; "><label id="szoveg" style="position: relative;"></label></div>
     <script>
+        var randnum = Math.random();
+        var inum = 2;
+        var rand1 = Math.round(randnum * (inum-1)) + 1;
+        var colors = new Array;
+        colors[1] = "#385c78";
+        colors[2] ="#9d302f";
+
         function szoroz(){
             //parseint("154")
             let a = parseInt(document.getElementById("elso").value);
@@ -127,7 +137,15 @@
 
         }
         setInterval("update()",1000);
+        function szovegmodosit(text){
+            document.getElementById("szoveg").innerText=text;
 
+
+        }
+        function szovegszin(){
+
+            document.getElementById("kocka").style.backgroundColor=colors[rand1];
+        }
     </script>
     </body>
 </html>
