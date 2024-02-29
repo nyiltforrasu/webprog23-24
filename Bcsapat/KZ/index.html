@@ -3,12 +3,17 @@
 
     <head>
         <meta charset="UTF-8">
-        <link rel="icon" href="resources/img.jpg">
-        <title>Magamrol</title>
-    </head>
-    <body style="background-color: gold" >
-    <img src="resources/img.jpg" height="300" width="490" alt="diszno">
 
+        <link rel="stylesheet" href="common.css">
+    </head>
+    <body style="background-color: gold" onload="szovegmodosit('az oldal betoltott')" >
+    <img src="resources/img.jpg" height="300" width="490" alt="diszno">
+    <link rel="icon" href="resources/img.jpg">
+    <title>Magamrol</title>
+    <!--<style>
+        h3 {font-family: "Bauhaus 93"; color: gray}
+
+    </style> -->
     &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
     <h3>
         Kőrösi Zétény
@@ -50,26 +55,34 @@
         <th>
             Kep:
         </th>
+
         <tr>
             <td>Lazity Levente</td>
             <td>4i</td>
-            <td><img src="resources/img.jpg" width="1050" height="100"></td>
+            <td><img src="resources/opt.png" width="350" height="200"></td>
         </tr>
         <tr>
-            <td>Korosi Zeteny</td>
+            <td>Farago szabolcs</td>
             <td>4i</td>
+            <td><img src="resources/8b2.png" width="350" height="200"></td>
+        </tr>
+        <tr>
+            <td>Hegedus Levente</td>
+            <td>4i</td>
+            <td><img src="resources/cit.png" width="350" height="300"></td>
         </tr>
     </table>
-    <p style="text-align:center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/JSSc9_FHIp0?si=HaX1q6swQEmvaosb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+    <p style="text-align:center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/bp2wsgKRmnSjzzu4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
 
+    https://www.youtube.com/embed/JSSc9_FHIp0?si=HaX1q6swQEmvaosb
     <a href="https://facebook.com" target="_blank"><h3>Facebook</h3></a>
     <blockquote>
         az élet olyan mint egy tál m & ms
         sose tudod milyen szinut huzol ki belole
         de az ize mindig ugyan olyan marad<br>
     <ul>
-        jurassic jurassic<br>
-        mesebeli park
+        <li class="hianyzo">jurassic jurassic </li><br>
+        mesebeli
         aki dino az most velunk tart
 
 
@@ -77,5 +90,116 @@
 
         <cite>M&M's</cite>
     </blockquote>
+    
+
+
+
+    <label for="elso">1st Number</label>
+    <input type="number" id="elso">
+    <br>
+    <label for="masodik">2st Number</label>
+    <input type="number" id="masodik">
+    <br>
+    <button onclick="szoroz()">multiply </button>
+    <button onclick="osztas()">divine</button>
+    <label id="result"></label>
+    <br>
+    <label id="ido"></label>
+
+
+
+    <div id="kocka" oncontextmenu="szovegmodosit('kocka opciok');szovegszin()"  onmouseenter="szovegmodosit('eger belul')" onmouseleave="szovegmodosit('eger kivul')"  onclick="szovegmodosit('kockaklik')" style="width: 200px; height: 100px; ;background: darkblue; "><label id="szoveg" style="position: relative;"></label></div>
+
+    <div style="float: right" id="nap" >df</div>
+    <input type="text" id="cucc" placeholder="ertek">
+    <button id="das" onclick="fuggveny">eltavolit</button>
+
+    <br>
+    <div id="demo">asd</div>
+    <script>
+        var randnum = Math.random();
+        var inum = 2;
+        var rand1 = Math.round(randnum * (inum-1)) + 1;
+        var colors = new Array;
+        colors[1] = "#385c78";
+        colors[2] ="#9d302f";
+
+        function szoroz(){
+            //parseint("154")
+            let a = parseInt(document.getElementById("elso").value);
+            let b = parseInt(document.getElementById("masodik").value);
+            console.log(typeof a);
+            const res = a*b;
+            document.getElementById("result").innerHTML=res;
+        }
+        function osztas(){
+            //parseint("154")
+            let a = parseInt(document.getElementById("elso").value);
+            let b = parseInt(document.getElementById("masodik").value);
+            console.log(typeof a);
+            const res = a/b;
+            document.getElementById("result").innerHTML=res;
+        }
+        function update(){
+    const a= new Date();
+
+            document.getElementById("ido").innerHTML=a.getHours().toString()+":"+a.getMinutes().toString()+":"+a.getSeconds().toString();
+
+
+        }
+        setInterval("update()",1000);
+
+        function szovegmodosit(text){
+            document.getElementById("szoveg").innerText=text;
+
+
+        }
+        function szovegszin(){
+
+            document.getElementById("kocka").style.backgroundColor=colors[rand1];
+        }
+            day=new Date().getDay()
+            switch (day) {
+                case 0:
+                    document.getElementById("nap").innerText = "vasarnap";
+                    break;
+                case 1:
+                    document.getElementById("nap").innerText = "hetfo";
+                    break;
+                case 2:
+                    document.getElementById("nap").innerText = "kedd";
+                    break;
+                case 3:
+                    document.getElementById("nap").innerText = "szerda";
+                    break;
+                case 4:
+                    document.getElementById("nap").innerText = "csutrtok";
+                    break;
+                case 5:
+                    document.getElementById("nap").innerText = "pentek";
+                    break;
+                case 6:
+                    document.getElementById("nap").innerText = "szombat";
+            }
+            const tomb = [];
+        for (let i = 0; i < 100; i++) {
+            tomb[i]= i;
+        }
+        function fuggveny(){
+            selp=document.getElementById("cucc").innerText;
+            tomb.at(selp).pop;
+            document.getElementById("demo").innerHTML = tomb.join(" * ");
+        }
+
+        let person = {
+            name: 'peter',
+            surname: 'twain',
+            age: 24,
+
+
+        }
+
+
+    </script>
     </body>
 </html>

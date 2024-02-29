@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+nev:
+<input type="text" id="nev">
+ osztalyzat:
+<input type="number" id="osztalyzat">
+email:
+<input type="text" id="email">
+eletkor:
+<input type="number" id="eletkor">
+
+<script>
+
+    let regex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+
+    let person = {
+        name: 'peter',
+        surname: 'twain',
+        age: 24,
+
+        function ValidateEmail(mail)
+    {
+        if (regex.test(myForm.emailAddr.value))
+        {
+            return (true)
+        }
+        alert("nem jo az emailcim")
+        return (false)
+    }
+    }
+
+</script>
+</body>
+</html>
