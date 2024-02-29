@@ -1,0 +1,19 @@
+body {
+    background-color: antiquewhite;
+    font-family: Broadway;
+    color: brown;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.hianyzo {
+    font-style: italic;
+    color: blue;
+}
+
+li {
+    font-size: calc(1em + 2vh);
+}

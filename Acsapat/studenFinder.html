@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax practice</title>
+</head>
+<body>
+    <input id="findByName" onkeyup="findStudent()" type="text">
+    <ul id="students">
+    </ul>
+    <script>
+        function findStudent(){
+            let input=document.getElementById("findByName").value;
+            if(input.length>=2){
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = () => {
+                    const students = xhttp.responseText;
+                    console.dir(students);
+                    if(this.status===200){
+
+                    }
+                }
+
+                const params = new URLSearchParams({"name": input});
+                const url = "ajaxAlap/diak.php?"+params.toString();// "name="+input
+                xhttp.open("GET",url);
+                xhttp.send();
+            }
+        }
+    </script>
+</body>
+</html>
