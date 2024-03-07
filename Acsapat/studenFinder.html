@@ -11,13 +11,19 @@
     <script>
         function findStudent(){
             let input=document.getElementById("findByName").value;
-            if(input.length>=2){
+            let list = document.getElementById("students");
+            if(input.length >= 2){
                 const xhttp = new XMLHttpRequest();
                 xhttp.onload = () => {
-                    const students = xhttp.responseText;
-                    console.dir(students);
-                    if(this.status===200){
-
+                    const students = JSON.parse(xhttp.responseText);
+                    // console.dir(students);
+                    if(xhttp.status===200){
+                        list.innerText = "";
+                        students.forEach((diak) => {
+                            let li = document.createElement("li");
+                            li.innerHTML = diak.vezetek + " " +diak.kereszt;
+                            list.append(li);
+                        })
                     }
                 }
 
@@ -25,6 +31,8 @@
                 const url = "ajaxAlap/diak.php?"+params.toString();// "name="+input
                 xhttp.open("GET",url);
                 xhttp.send();
+            } else {
+                list.innerText="";
             }
         }
     </script>

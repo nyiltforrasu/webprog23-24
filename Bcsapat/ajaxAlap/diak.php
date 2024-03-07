@@ -7,8 +7,11 @@
    }
 
    $name = isset($_GET["name"]) ? $_GET["name"] : "";
-   $stmt = "SELECT kereszt, vezetek FROM ucenik " .
+   $sql = "SELECT kereszt, vezetek FROM ucenik " .
             "WHERE (vezetek LIKE CONCAT(?, '%') OR kereszt LIKE CONCAT(?, '%')) LIMIT 10"; 
+
+   $stmt = mysqli_prepare($db, $sql);
+
    if (!$stmt)
       die(mysqli_error($db));
 
@@ -24,5 +27,5 @@
    while ($row = mysqli_fetch_assoc($result))
       array_push($ucenici, $row);
       // visszaadjuk a kereses alapjan megtalalt diakokat JSON formatumban
-      echo json_encode($ucenici);
+   echo json_encode($ucenici);
 ?>
