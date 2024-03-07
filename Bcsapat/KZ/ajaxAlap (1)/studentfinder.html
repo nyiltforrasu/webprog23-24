@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body>
+<input id="searchtext" type="text" onkeyup="findstudents()">
+<ul id="searchresult"></ul>
+
+
+
+
+<script>
+    function findstudents(){
+        const stext=document.getElementById('searchtext').value;
+        if (stext.length > 1) {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                    if(xhr.status===200) {
+
+
+                        const results = JSON.parse(xhr.responseText);
+                        const ul = document.getElementById("searchresult");
+                        ul.innerText = "";
+                        results.forEach((diak) => {
+                            console.log(diak);
+                            const li = document.createElement("li");
+                            li.innerHTML = diak.vezetek + " " + diak.kereszt;
+                            ul.append(li);
+
+
+                        })
+                    }
+
+            }
+            const url = "diak.php?name=" + stext;
+            xhr.open("GET", url);
+            xhr.send();
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

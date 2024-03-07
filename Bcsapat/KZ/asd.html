@@ -13,26 +13,41 @@ email:
 <input type="text" id="email">
 eletkor:
 <input type="number" id="eletkor">
+<button id="gomb" onclick="nyomos">gomb</button>
 
 <script>
 
     let regex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
     let person = {
-        name: 'peter',
-        surname: 'twain',
-        age: 24,
+        nev : document.getElementById("nev"),
+        osztalyzat : parseInt(document.getElementById("osztalyzat")),
+        email : document.getElementById("email"),
+        eletkor : parseInt(document.getElementById("eletkor")),
 
-        function ValidateEmail(mail)
+    }
+    const tomb = [];
+    function nyomos()
     {
-        if (regex.test(myForm.emailAddr.value))
+        tomb.push(person.nev);
+        tomb.push(person.osztalyzat);
+        tomb.push(person.email);
+        tomb.push(person.eletkor);
+        console.log(person.nev[0]);
+
+    }
+
+       /* function ValidateEmail(mail)
+    {
+        if (regex.test(document.getElementById("email"))
         {
+
             return (true)
         }
         alert("nem jo az emailcim")
         return (false)
-    }
-    }
+    }*/
+
 
 </script>
 </body>
