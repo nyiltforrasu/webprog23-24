@@ -3,7 +3,35 @@
     <meta charset="UTF-8">
 </head>
 <body>
+
+    <?php
+    session_start();
+    if(isset($_POST['login'])){
+        $_SESSION['username'] = $_POST['userName'];
+    }elseif (isset($_POST['logout'])){
+        unset($_SESSION['username']);
+        session_destroy();
+    }
+
+    if(!isset($_SESSION["username"])) {
+       echo "<form method='post'>
+            <input type='hidden' name='login' value='true'>
+            <input type = 'text' id = 'userName' name = 'userName'  required>
+            <input type = 'email' id = 'loginEmail' name = 'loginEmail'  required>
+            <input type='submit' value='Bejelentkezes'>
+       </form>";
+    } else {
+        echo '<form method="post">
+            <input type="hidden" name="logout">
+            <p>Szia '.$_SESSION['username'].'</p>
+            <button> Kijelentkezes</button >
+        </form>';
+    }
+    ?>
+
 <?php
+
+
 $file = "users.csv";
 if(file_exists($file)){
     $handle = fopen($file, 'r') or die("Nem sikerult megnyitni a fajlt!");

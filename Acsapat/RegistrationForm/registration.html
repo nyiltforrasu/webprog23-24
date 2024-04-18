@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu-HU">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+  <script>
+    const sutik = document.cookie?.split(';');
+    const defaultName = sutik[0]?.split('=')[1];
+    const defaultEmail = sutik[1]?.split('=')[1];
+  </script>
+</head>
+<body>
+<div style="display: inline-block">
+  <div>
+    <form action="../fileIO/register.php" method="post" autocomplete="on">
+      <div>
+        <label for="displayName">Nev</label>
+        <input type="text" name="displayName" id="displayName" minlength="3" maxlength="40" required>
+      </div>
+      <div>
+        <label for="age">Kor</label>
+        <input type="number" name="age" id="age" min="18" max="100" required>
+      </div>
+      <div>
+        <label for="email">Email cim</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="title">Foglalkozas</label>
+        <input type="text" id="title" maxlength="20" name="title" required>
+      </div>
+      <input type="submit" value="Mentes">
+    </form>
+  </div>
+</div>
+
+
+<script>
+  document.getElementById('displayName').value = defaultName;
+  document.getElementById('email').value = defaultEmail;
+</script>
+</body>
+</html>
